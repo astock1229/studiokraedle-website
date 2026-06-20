@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lilalab</title>
+
+  <style>
+    :root {
+      --bg: #050607;
+      --text: #e9e4d8;
+      --muted: #a79f90;
+      --gold: #d6b15f;
+      --vermillion: #ff4b24;
+      --line: rgba(214, 177, 95, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 92%, rgba(255, 75, 36, 0.24), transparent 16%),
+        radial-gradient(circle at 50% 25%, rgba(255, 75, 36, 0.08), transparent 30%),
+        linear-gradient(180deg, #020303 0%, #08090b 55%, #030404 100%);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 75, 36, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 75, 36, 0.06) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to top, black 0%, transparent 45%);
+      opacity: 0.5;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.09'/%3E%3C/svg%3E");
+      opacity: 0.18;
+    }
+
+    main {
+      width: min(1100px, 94vw);
+      min-height: 75vh;
+      padding: 5rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo img {
+      width: min(750px, 92vw);
+      height: auto;
+      display: block;
+      filter:
+        drop-shadow(0 0 24px rgba(255, 75, 36, 0.18))
+        drop-shadow(0 0 80px rgba(255, 75, 36, 0.10));
+    }
+
+    .ornament {
+      margin: 2.4rem 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      color: var(--vermillion);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 70px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--vermillion));
+    }
+
+    .ornament::after {
+      background: linear-gradient(90deg, var(--vermillion), transparent);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--vermillion);
+      box-shadow: 0 0 20px rgba(255, 75, 36, 0.9);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--gold);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: 0.18em;
+      font-weight: 300;
+    }
+
+    .divider {
+      width: 120px;
+      height: 1px;
+      background: var(--line);
+      margin: 1.2rem auto;
+    }
+
+    .message {
+      max-width: 720px;
+      margin: 0 auto;
+      color: rgba(233, 228, 216, 0.82);
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      line-height: 1.9;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+    }
+
+    .hex-divider {
+      margin: 1.2rem 0 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      width: min(600px, 80vw);
+    }
+
+    .hex-divider::before,
+    .hex-divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, var(--line));
+    }
+
+    .hex-divider::after {
+      background: linear-gradient(90deg, var(--line), transparent);
+    }
+
+    .hex {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--gold);
+      clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
+      opacity: 0.85;
+    }
+
+    footer {
+      color: rgba(214, 177, 95, 0.72);
+      font-size: clamp(0.72rem, 1.4vw, 0.95rem);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      padding-bottom: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        padding-top: 3rem;
+      }
+
+      .hero-logo img {
+        width: 96vw;
+      }
+
+      .message {
+        letter-spacing: 0.04em;
+      }
+
+      footer {
+        letter-spacing: 0.22em;
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="hero-logo">
+      <img src="assets/lilalab-logo.png" alt="Lilalab" />
+    </div>
+
+    <div class="ornament">
+      <span class="dot"></span>
+    </div>
+
+    <p class="subtitle">
+      Building tools for tomorrow's digital worlds.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="message">
+      A collection of systems is quietly taking shape.<br />
+      Some preserve memory.<br />
+      Some build worlds.<br />
+      Some teach machines.<br />
+      All are designed to augment human creativity.
+    </p>
+
+    <div class="hex-divider">
+      <span class="hex"></span>
+    </div>
+
+    <footer>
+      Human in the loop · Machine in the workshop
+    </footer>
+  </main>
+</body>
+</html>
