@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lilalab</title>
+  <title>Studio Kraedle</title>
 
   <style>
     :root {
       --bg: #050607;
-      --text: #e9e4d8;
-      --muted: #a79f90;
-      --gold: #d6b15f;
+      --text: #edf7f7;
+      --muted: #89a8ab;
+      --aqua: #18e7ef;
       --vermillion: #ff4b24;
-      --line: rgba(214, 177, 95, 0.28);
+      --line: rgba(24, 231, 239, 0.28);
     }
 
     * {
@@ -24,8 +24,9 @@
       min-height: 100vh;
       font-family: "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at 50% 92%, rgba(255, 75, 36, 0.24), transparent 16%),
-        radial-gradient(circle at 50% 25%, rgba(255, 75, 36, 0.08), transparent 30%),
+        radial-gradient(circle at 50% 92%, rgba(255, 75, 36, 0.20), transparent 18%),
+        radial-gradient(circle at 15% 20%, rgba(24, 231, 239, 0.08), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(24, 231, 239, 0.06), transparent 30%),
         linear-gradient(180deg, #020303 0%, #08090b 55%, #030404 100%);
       color: var(--text);
       display: flex;
@@ -40,11 +41,11 @@
       inset: 0;
       pointer-events: none;
       background-image:
-        linear-gradient(rgba(255, 75, 36, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 75, 36, 0.06) 1px, transparent 1px);
+        linear-gradient(rgba(24, 231, 239, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 231, 239, 0.05) 1px, transparent 1px);
       background-size: 80px 80px;
       mask-image: linear-gradient(to top, black 0%, transparent 45%);
-      opacity: 0.5;
+      opacity: 0.55;
     }
 
     body::after {
@@ -70,12 +71,12 @@
     }
 
     .hero-logo img {
-      width: min(750px, 92vw);
+      width: min(820px, 94vw);
       height: auto;
       display: block;
       filter:
-        drop-shadow(0 0 24px rgba(255, 75, 36, 0.18))
-        drop-shadow(0 0 80px rgba(255, 75, 36, 0.10));
+        drop-shadow(0 0 24px rgba(24, 231, 239, 0.30))
+        drop-shadow(0 0 80px rgba(255, 75, 36, 0.18));
     }
 
     .ornament {
@@ -91,7 +92,7 @@
       content: "";
       width: 70px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--vermillion));
+      background: linear-gradient(90deg, transparent, var(--aqua));
     }
 
     .ornament::after {
@@ -103,15 +104,19 @@
       height: 9px;
       border-radius: 999px;
       background: var(--vermillion);
-      box-shadow: 0 0 20px rgba(255, 75, 36, 0.9);
+      box-shadow:
+        0 0 18px rgba(255, 75, 36, 0.9),
+        0 0 28px rgba(24, 231, 239, 0.35);
     }
 
     .subtitle {
       margin: 0;
-      color: var(--gold);
+      color: var(--aqua);
       font-size: clamp(1rem, 2vw, 1.35rem);
       letter-spacing: 0.18em;
-      font-weight: 300;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-shadow: 0 0 18px rgba(24, 231, 239, 0.18);
     }
 
     .divider {
@@ -122,17 +127,22 @@
     }
 
     .message {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      color: rgba(233, 228, 216, 0.82);
+      color: rgba(237, 247, 247, 0.84);
       font-size: clamp(1rem, 1.8vw, 1.25rem);
       line-height: 1.9;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       font-weight: 300;
     }
 
+    .message strong {
+      color: var(--vermillion);
+      font-weight: 600;
+    }
+
     .hex-divider {
-      margin: 1.2rem 0 1.2rem;
+      margin: 1.4rem 0 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -155,17 +165,21 @@
     .hex {
       width: 22px;
       height: 22px;
-      border: 1px solid var(--gold);
+      border: 1px solid var(--aqua);
       clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%);
-      opacity: 0.85;
+      opacity: 0.9;
+      box-shadow:
+        0 0 18px rgba(24, 231, 239, 0.32),
+        inset 0 0 12px rgba(255, 75, 36, 0.18);
     }
 
     footer {
-      color: rgba(214, 177, 95, 0.72);
+      color: rgba(255, 75, 36, 0.82);
       font-size: clamp(0.72rem, 1.4vw, 0.95rem);
       letter-spacing: 0.42em;
       text-transform: uppercase;
       padding-bottom: 1rem;
+      text-shadow: 0 0 18px rgba(255, 75, 36, 0.16);
     }
 
     @media (max-width: 700px) {
@@ -177,12 +191,17 @@
         width: 96vw;
       }
 
+      .subtitle {
+        letter-spacing: 0.11em;
+        line-height: 1.7;
+      }
+
       .message {
-        letter-spacing: 0.04em;
+        letter-spacing: 0.035em;
       }
 
       footer {
-        letter-spacing: 0.22em;
+        letter-spacing: 0.2em;
         line-height: 1.8;
       }
     }
@@ -192,7 +211,7 @@
 <body>
   <main>
     <div class="hero-logo">
-      <img src="assets/lilalab-logo.png" alt="Lilalab" />
+      <img src="assets/studiokraedlehero.png" alt="Studio Kraedle" />
     </div>
 
     <div class="ornament">
@@ -200,17 +219,17 @@
     </div>
 
     <p class="subtitle">
-      Building tools for tomorrow's digital worlds.
+      Creative assets. Wild imagination. Endless possibilities.
     </p>
 
     <div class="divider"></div>
 
     <p class="message">
-      A collection of systems is quietly taking shape.<br />
-      Some preserve memory.<br />
-      Some build worlds.<br />
-      Some teach machines.<br />
-      All are designed to augment human creativity.
+      Welcome to <strong>Studio Kraedle</strong>.<br /><br />
+      This is not a factory for ordinary assets.<br />
+      This is a workshop for strange ideas.<br />
+      A place where artists and machines collaborate.<br />
+      A place where digital worlds become louder, weirder and unforgettable.
     </p>
 
     <div class="hex-divider">
@@ -218,7 +237,7 @@
     </div>
 
     <footer>
-      Human in the loop · Machine in the workshop
+      Create · Experiment · Build · Unleash
     </footer>
   </main>
 </body>
